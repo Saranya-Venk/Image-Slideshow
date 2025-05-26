@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Slider</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background:linear-gradient(to right, #f1960e, #2a6bd5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .slider {
+      position: relative;
+      width: 900px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      min-width: 100%;
+      height: 100%;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+    }
+    .arrow.left {
+      left:250px;
+    }
+    .arrow.right {
+      right: 250px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider"> 
+    
+  <div class="slides"> 
+    
+    <div class="slide"><img src="./images/tom1.jpeg" alt="tom & jerry1"></div>
+    <div class="slide"><img src="./images/tom2.jpeg" alt="tom & jerry2"></div>
+    <div class="slide"><img src="./images/tom3.jpeg" alt="tom & jerry3"></div>
+    <div class="slide"><img src="./images/tom4.jpeg" alt="tom & jerry 4"></div>
+    <div class="slide"><img src="./images/tom5.jpeg" alt="tom & jerry 5"></div>
+    <div class="slide"><img src="./images/tom6.jpeg" alt="tom & jerry 6"></div>
+    <div class="slide"><img src="./images/tom7.jpeg" alt="tom & jerry 7"></div>
+    <div class="slide"><img src="./images/Tom & Jerry.jpeg" alt="tom & jerry 8"></div>
+  </div>
+ 
+</div>
+ <div class="arrow left">&#10094;</div>
+  <div class="arrow right">&#10095;</div>
+
+<script>
+  const slides = document.querySelector('.slides');
+  const slide = document.querySelectorAll('.slide');
+  const prev = document.querySelector('.arrow.left');
+  const next = document.querySelector('.arrow.right');
+  let index = 0;
+
+  function showSlide(i) {
+    index = (i + slide.length) % slide.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function autoSlide() {
+    index++;
+    showSlide(index);
+  }
+
+  prev.addEventListener('click', () => showSlide(index - 1));
+  next.addEventListener('click', () => showSlide(index + 1));
+
+  setInterval(autoSlide, 3000); // Auto slide every 3 seconds
+</script>
+
+</body>
+</html>
 
