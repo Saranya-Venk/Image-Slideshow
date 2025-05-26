@@ -16,7 +16,7 @@ A responsive and animated **image slider** featuring everyone's favorite cartoon
 ---
 
 ## 📸 Preview
-
+![Image](https://github.com/user-attachments/assets/2d8146ed-5550-4901-917e-cf0d8d51ae5e)
 
 
 ---
